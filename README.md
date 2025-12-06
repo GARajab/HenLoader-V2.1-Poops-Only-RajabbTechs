@@ -12,7 +12,8 @@
 
 ✅ Simple Success/Failed messages
 
-
+<br/>
+<br/>
 
 🤝 Contributing
 Contributions are welcome! Here's how:
@@ -27,12 +28,14 @@ Contributions are welcome! Here's how:
 
 🔀 Open a Pull Request
 
-
+<br/>
+<br/>
 
 📝 License
 📄 This project is licensed under the MIT License
 
-
+<br/>
+<br/>
 
 📞 Support
 
@@ -41,9 +44,15 @@ Contributions are welcome! Here's how:
 
 ⭐ Like this project? Give it a star on GitHub!
 
+<br/>
+<br/>
+
 Made with ❤️ by GARajab
 
 Last updated: December 2025
+
+<br/>
+<br/>
 
 🔗 Quick Links
 
