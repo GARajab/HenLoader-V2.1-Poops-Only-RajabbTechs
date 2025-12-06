@@ -87,3 +87,9 @@ Last updated: December 2025
 <a href="https://www.youtube.com/@RajabbTechs" target="_blank" rel="noopener noreferrer">
     📺 YouTube
 </a>
+
+<br/>
+<br/>
+
+
+<img width="2493" height="1318" alt="Screenshot from 2025-12-06 08-48-45" src="https://github.com/user-attachments/assets/da4d6917-386e-4d48-9500-5664f104e470" />
