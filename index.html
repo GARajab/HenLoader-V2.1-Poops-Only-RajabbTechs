@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HenLoader V2.0 Poops-Only | RajabbTechs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #003087; /* PS4 blue color */
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .logo-icon {
+            font-size: 2.5rem;
+            color: #00a8f3;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            color: white;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #b8d4ff;
+            margin-bottom: 5px;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: #8cb4ff;
+            margin-bottom: 30px;
+        }
+
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            margin-bottom: 50px;
+        }
+
+        .disk-container {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Replace CSS disk with your image */
+        .disk {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: url('125233294-removebg-preview.png') center/contain no-repeat;
+            position: relative;
+            box-shadow: 
+                0 0 30px rgba(0, 168, 243, 0.5),
+                0 0 60px rgba(0, 168, 243, 0.3);
+            animation: rotate 15s linear infinite;
+            filter: drop-shadow(0 0 10px rgba(0, 168, 243, 0.7));
+        }
+
+        /* Add a subtle shine effect over the image */
+        .disk::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, 
+                rgba(255, 255, 255, 0.15) 0%,
+                rgba(255, 255, 255, 0.05) 20%,
+                transparent 60%
+            );
+            z-index: 1;
+        }
+
+        /* Add reflection effect */
+        .disk::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 50%;
+            top: 0;
+            left: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(255, 255, 255, 0.1) 0%,
+                rgba(255, 255, 255, 0) 60%
+            );
+            border-radius: 50% 50% 0 0;
+            z-index: 1;
+        }
+
+        /* Center glow effect */
+        .disk-center-glow {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: radial-gradient(circle at center, 
+                rgba(0, 168, 243, 0.3) 0%,
+                rgba(0, 168, 243, 0.1) 40%,
+                transparent 70%
+            );
+            z-index: 0;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .info-section {
+            max-width: 500px;
+            text-align: left;
+        }
+
+        .info-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: #00a8f3;
+        }
+
+        .features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .features li {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .features i {
+            color: #00a8f3;
+            font-size: 1.2rem;
+        }
+
+        .download-section {
+            margin-top: 20px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .download-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            background: linear-gradient(135deg, #00a8f3 0%, #0066cc 100%);
+            color: white;
+            padding: 18px 40px;
+            font-size: 1.4rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 104, 255, 0.4);
+            text-decoration: none;
+            margin-bottom: 15px;
+        }
+
+        .download-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 104, 255, 0.6);
+            background: linear-gradient(135deg, #00b8ff 0%, #0077ff 100%);
+        }
+
+        .download-button:active {
+            transform: translateY(0);
+        }
+
+        .download-button i {
+            font-size: 1.8rem;
+        }
+
+        .download-info {
+            color: #b8d4ff;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            width:100%;
+        }
+
+        .download-info2 {
+            color: #b8d4ff;
+            font-size: 0.9rem;
+            margin-top: 5px;
+            width:120%;
+        }
+
+        .controls {
+            margin-top: 20px;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .control-button {
+            background: rgba(0, 168, 243, 0.2);
+            color: white;
+            border: 2px solid #00a8f3;
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .control-button:hover {
+            background: rgba(0, 168, 243, 0.4);
+        }
+
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            color: #8cb4ff;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(0, 168, 243, 0.3);
+            padding-top: 20px;
+            width: 100%;
+        }
+
+        .footer p {
+            margin-bottom: 10px;
+        }
+
+        .version {
+            background: rgba(0, 168, 243, 0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            color: #00a8f3;
+        }
+
+        /* Animation for the disk */
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Glow pulse animation */
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.5;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.8;
+                transform: scale(1.1);
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 900px) {
+            .main-content {
+                flex-direction: column;
+                gap: 40px;
+            }
+            
+            .info-section {
+                text-align: center;
+            }
+            
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            .subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .disk-container {
+                width: 350px;
+                height: 350px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .disk-container {
+                width: 300px;
+                height: 300px;
+            }
+            
+            .download-button {
+                padding: 15px 30px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <i class="fas fa-compact-disc logo-icon"></i>
+                <h1>HenLoader V2.0 Poops-Only RajabbTechs</h1>
+            </div>
+            <div class="subtitle">RajabbTechs</div>
+            <div class="tagline">The Best PlayStation 4 JB Poops Only ISO File Thanks To theflow and 15432</div>
+        </div>
+
+        <div class="main-content">
+            <div class="disk-container">
+                <div class="disk-center-glow"></div>
+                <div class="disk"></div>
+            </div>
+
+            <div class="info-section">
+                <h2>PS4 Homebrew Revolution</h2>
+                <ul class="features">
+                    <li><i class="fas fa-check-circle"></i> Latest GoldHEN 2.4b18.7 By SiSTR0.</li>
+                    <li><i class="fas fa-check-circle"></i> Poops Only (No Lapse).</li>
+                    <li><i class="fas fa-check-circle"></i> Added Native Notifications.</li>
+                    <li><i class="fas fa-check-circle"></i> Automaticly Run (After 3 Seconds No User Selection).</li>
+                    <li><i class="fas fa-check-circle"></i> 99% Success Rate.</li>
+                    <li><i class="fas fa-check-circle"></i> Background.</li>
+                    <li><i class="fas fa-check-circle"></i> Only Success Or Failed (No Alot Of Unknown Words).</li>
+                </ul>
+                
+                <div class="download-section">
+                    <a href="#" class="download-button" id="downloadBtn">
+                        <i class="fas fa-download"></i>
+                        Download ISO File
+                    </a>
+                    
+                    <div class="download-info">File size: 16.8 MB</div>
+                    <br>
+                    <div class="download-info2">SHA-256: dbd4d659c91815209c7d592e3f133e716f3a1103f4836f66bd9c2e2d51350f5b</div>
+                    
+                    <div class="controls">
+                        <button class="control-button" id="stopBtn">
+                            <i class="fas fa-stop"></i> Stop/Start Disk
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+<p class="version">Version 2.0 | Poops-Only Edition</p>
+            <p>© 2025 RajabbTechs</p>
+            <p>All PlayStation trademarks are property of Sony Interactive Entertainment.</p>
+        </div>
+    </div>
+
+    <script>
+        // Get DOM elements
+        const disk = document.querySelector('.disk');
+        const downloadBtn = document.getElementById('downloadBtn');
+        const speedUpBtn = document.getElementById('speedUpBtn');
+        const slowDownBtn = document.getElementById('slowDownBtn');
+        const stopBtn = document.getElementById('stopBtn');
+        
+        // Disk rotation variables
+        let rotationSpeed = 15; // seconds for full rotation
+        let isRotating = true;
+        let currentRotation = 0;
+        stopBtn.addEventListener('click', () => {
+            if (isRotating) {
+                // Get current rotation
+                const computedStyle = window.getComputedStyle(disk);
+                const matrix = computedStyle.transform;
+                
+                if (matrix !== 'none') {
+                    // Calculate current angle
+                    const values = matrix.split('(')[1].split(')')[0].split(',');
+                    const a = values[0];
+                    const b = values[1];
+                    let angle = Math.round(Math.atan2(b, a) * (180/Math.PI));
+                    angle = angle < 0 ? angle + 360 : angle;
+                    
+                    // Calculate how much to rotate to reach nearest 0/360 position
+                    const modAngle = angle % 360;
+                    let rotateTo = angle - modAngle; // Nearest 0/360/720...
+                    
+                    // If we're close to 360 but not 0, go to 360
+                    if (modAngle > 330 || modAngle < 30) {
+                        rotateTo = angle + (360 - modAngle);
+                    }
+                    
+                    // Stop CSS animation
+                    disk.style.animation = 'none';
+                    
+                    // Apply transition for smooth rotation
+                    disk.style.transition = 'transform 1s ease-out';
+                    disk.style.transform = `rotate(${rotateTo}deg)`;
+                    
+                    // After transition completes, snap exactly to 0
+                    setTimeout(() => {
+                        disk.style.transition = 'none';
+                        disk.style.transform = 'rotate(0deg)';
+                    }, 1000);
+                } else {
+                    // If no transform, just stop
+                    disk.style.animation = 'none';
+                    disk.style.transform = 'rotate(0deg)';
+                }
+                
+                stopBtn.innerHTML = '<i class="fas fa-play"></i> Start Disk';
+                isRotating = false;
+            } else {
+                // Remove transition and start animation
+                disk.style.transition = 'none';
+                disk.style.animation = `rotate ${rotationSpeed}s linear infinite`;
+                stopBtn.innerHTML = '<i class="fas fa-stop"></i> Stop Disk';
+                isRotating = true;
+            }
+        });
+        
+        // Download button functionality
+        downloadBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            // Create a fake download simulation
+            downloadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Downloading...';
+            downloadBtn.style.pointerEvents = 'none';
+            
+            // Simulate download process
+            setTimeout(() => {
+                // In a real implementation, this would link to your actual ISO file
+                // For this demo, we'll just show a completion message
+                downloadBtn.innerHTML = '<i class="fas fa-check"></i> Download Complete!';
+                downloadBtn.style.background = 'linear-gradient(135deg, #00cc66 0%, #00994d 100%)';
+                
+                // Create a temporary link to simulate file download
+                const tempLink = document.createElement('a');
+                tempLink.href = 'https://github.com/RajabbTechs/HenLoader/releases/download/v2.0/HenLoader_V2.0_Poops-Only_RajabbTechs.iso';
+                tempLink.download = 'HenLoader_V2.0_Poops-Only_RajabbTechs.iso';
+                document.body.appendChild(tempLink);
+                tempLink.click();
+                document.body.removeChild(tempLink);
+                
+                // Reset button after 3 seconds
+                setTimeout(() => {
+                    downloadBtn.innerHTML = '<i class="fas fa-download"></i> Download ISO File';
+                    downloadBtn.style.background = 'linear-gradient(135deg, #00a8f3 0%, #0066cc 100%)';
+                    downloadBtn.style.pointerEvents = 'auto';
+                }, 3000);
+            }, 1500);
+        });
+        
+        // Add some interactive effects to the disk on hover
+        disk.addEventListener('mouseenter', () => {
+            disk.style.filter = 'drop-shadow(0 0 20px rgba(0, 168, 243, 0.9)) brightness(1.1)';
+            disk.style.transform = 'scale(1.02)';
+            disk.style.transition = 'all 0.3s ease';
+        });
+        
+        disk.addEventListener('mouseleave', () => {
+            disk.style.filter = 'drop-shadow(0 0 10px rgba(0, 168, 243, 0.7))';
+            disk.style.transform = 'scale(1)';
+        });
+        
+        // Initialize disk speed
+        updateDiskSpeed();
+        
+        // Make sure the image path is correct
+        // If the image is in the same directory as your HTML file, keep it as is
+        // If it's in a different folder, update the URL in the CSS above
+        console.log('Disk image loaded from: 125233294-removebg-preview.png');
+    </script>
+</body>
+</html>
