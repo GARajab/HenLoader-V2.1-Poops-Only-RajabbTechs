@@ -49,7 +49,7 @@ Contributions are welcome! Here's how:
 
 Made with ❤️ by GARajab
 
-Thanks <a href="[https://github.com/GARajab/HenLoader-V2.0-Poops-Only-RajabbTechs/issues](https://www.youtube.com/watch?v=h3PeRfgBCus)" target=_blank rel="noopener noreferrer">VIDEOGAMES SCZ</a> For Video and your subscribe
+Thanks <a href="https://www.youtube.com/watch?v=h3PeRfgBCus" target=_blank rel="noopener noreferrer">VIDEOGAMES SCZ</a> For Video and your subscribe
 
 
 Last updated: December 2025
